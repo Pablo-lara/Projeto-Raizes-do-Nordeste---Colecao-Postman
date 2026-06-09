@@ -1,0 +1,318 @@
+{
+  "info": {
+    "_postman_id": "bb25154e-de8d-4c25-b109-241db5e1c745",
+    "name": "Projeto Raizes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32519317"
+  },
+  "item": [
+    {
+      "name": "Cenarios positivos",
+      "item": [
+        {
+          "name": "T01-Cadastro de Usuario com sucesso",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nome\": \"Pablo\",\r\n  \"sobrenome\": \"Lara\",\r\n  \"email\": \"pablolara1@email.com\",\r\n  \"senhahash\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Usuario/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Usuario",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T02-Login com credenciais validas",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"pablolara@email.com\",\r\n  \"senha\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Usuario/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Usuario",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T03-Consulta de cardapio ativo",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Cardapio",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Cardapio"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T04-Abertura de novo pedido",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"usuarioId\": 1,\r\n  \"canal\": 1,\r\n  \"itens\": [\r\n    { \"itemCardapioId\": 1, \"quantidade\": 2 },\r\n    { \"itemCardapioId\": 2, \"quantidade\": 1 }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Pedidos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T05-Consulta de progresso do pedido",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Pedidos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Pedidos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T06-Processamento de Pagamento Aprovado",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Pedidos/pagamento",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Pedidos",
+                "pagamento"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cenarios negativos",
+      "item": [
+        {
+          "name": "T07-Senha ou email incorretos",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"pablo.email_sem_arroba\",\r\n  \"senha\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Usuario/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Usuario",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T08-Campo obrigatorio ausente",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nome\": \"Thiago\",\r\n  \"sobrenome\": \"\",\r\n  \"email\": \"thiago@email.com\",\r\n  \"senhaHash\": \"123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Usuario/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Usuario",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T09-Pedido com item inexistente",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"usuarioId\": 1,\r\n  \"canal\": 2,\r\n  \"itens\": [\r\n    { \"itemCardapioId\": 99, \"quantidade\": 1 }\r\n  ]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Pedidos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "T10-Pagamento para pedido ja pago",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"pedidoId\": 1,\r\n  \"formaPagamento\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5054/api/Pedidos/pagamento",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5054",
+              "path": [
+                "api",
+                "Pedidos",
+                "pagamento"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
