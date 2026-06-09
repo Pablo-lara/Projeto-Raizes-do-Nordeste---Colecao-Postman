@@ -40,14 +40,7 @@ T06 (Pagamento): Simula a aprovação financeira e muda o status para "Em Prepar
 
 T10 (Erro de Pagamento): Tenta pagar novamente o mesmo pedido para validar o bloqueio de duplicidade.
 
-
-##A coleção do Postman está organizada e mapeada conforme a tabela de evidências exigida pelas diretrizes do projeto multidisciplinar:
-
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+Obs: Indices dos testes segue padrão apresentado na tabela de testes presente na seção de testes no documento final de entrega do trabalho.
 
 ##Observações de auditorias e logs
 Sistema de Logs/Auditoria Automatizada: Não implementado nesta versão do software.
